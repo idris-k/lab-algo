@@ -41,10 +41,10 @@ public:
     SNode* temp = tail->next; // Start from head
     cout << "Circular Linked List: ";
     do {
-        cout << temp->data << " ";
+        cout << temp->data << " -> ";
         temp = temp->next;
     } while (temp != tail->next); // Loop until back to head
-    cout << endl;
+    cout << "(" << head->data << " again)" << endl;
 }
 
 
@@ -84,7 +84,7 @@ public:
 
 
 int main() {
-    CircularLinkedList list; // 🆕 Class name changed
+    CircularLinkedList list; //  Class name changed
 
     list.addNode(10);
     list.addNode(20);
