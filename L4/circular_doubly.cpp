@@ -40,7 +40,7 @@ public:
         DNode* temp = head;
         cout << "Circular Doubly Linked List: ";
         do {
-            cout << temp->data << " -> ";
+            cout << temp->data << " <-> ";
             temp = temp->next;
         } while (temp != head);
         cout << "(" << head->data << " again)" << endl;
