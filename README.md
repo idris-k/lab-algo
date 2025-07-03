@@ -9,4 +9,5 @@ ___
 | Lab 2   |[easy](./L2/easy.cpp)<br>[medium](./L2/medium.cpp)<br>[hard](./L2/hard.cpp)| 2025-06-04 |
 | Lab 3   |[singly](./L3/singly.cpp)<br>[doubly](./L3/doubly.cpp)                     | 2025-06-12 |
 | Lab 4   |Circular Linked List<br>[circular singly](./L4/circular_singly.cpp)<br>[circular doubly](./L4/circular_doubly.cpp)  |2025-06-19  |
+| Lab 5   |[Stack](./L5/stack.cpp)                                                    |2025-06-26  |
             
