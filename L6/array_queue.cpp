@@ -77,11 +77,11 @@ int main() {
     aq.enqueue(20);
     aq.enqueue(30);
 
-    aq.peek();     // Should show 10
-    aq.display();  // Should show 10 20 30
+    aq.peek();     // show 10
+    aq.display();  // show 10 20 30
 
     aq.dequeue();  // Removes 10
-    aq.display();  // Should show 20 30
+    aq.display();  // show 20 30
 
     return 0;
 }
