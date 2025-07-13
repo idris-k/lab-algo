@@ -114,8 +114,8 @@ int main() {
     queue.enqueue(20);
     queue.enqueue(30);
 
-    queue.peekFront();  // Should show 10
-    queue.peekRear();   // Should show 30
+    queue.peekFront();  // show 10
+    queue.peekRear();   // show 30
     queue.display();    // 10 20 30
 
     queue.dequeue();    // Removes 10
