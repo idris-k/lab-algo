@@ -85,11 +85,11 @@ int main() {
     cq.enqueue(20);
     cq.enqueue(30);
 
-    cq.peek();     // Should show 10
-    cq.display();  // Should show 10 20 30
+    cq.peek();     // show 10
+    cq.display();  // show 10 20 30
 
     cq.dequeue();  // Removes 10
-    cq.display();  // Should show 20 30
+    cq.display();  // show 20 30
 
     return 0;
 }
