@@ -10,4 +10,5 @@ ___
 | Lab 3   |[singly](./L3/singly.cpp)<br>[doubly](./L3/doubly.cpp)                     | 2025-06-12 |
 | Lab 4   |Circular Linked List<br>[circular singly](./L4/circular_singly.cpp)<br>[circular doubly](./L4/circular_doubly.cpp)  |2025-06-19  |
 | Lab 5   |[Stack](./L5/stack.cpp)                                                    |2025-06-26  |
-| Lab 6   |[queue](./L6/queue.cpp)<br>[doubly queue](./L6/doubly_queue.cpp)<br>[circular queue](./L6/circular_queue.cpp)<br>[array queue](./L6/array_queue.cpp)|2025-07-03  |
+| Lab 6   |[Queue](./L6/queue.cpp)<br>[Doubly Queue](./L6/doubly_queue.cpp)<br>[Circular Queue](./L6/circular_queue.cpp)<br>[Array Queue](./L6/array_queue.cpp)|2025-07-03  |
+| Lab 7   |[Tree](./L7/tree.cpp)                                                    |2025-07-10  |
