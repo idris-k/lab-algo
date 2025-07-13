@@ -204,9 +204,9 @@ int main() {
     tree_add.display_with_parent("E");
 
     cout << "\n-- Attempting Removals --" << endl;
-    tree_add.remove("E");  // ✅ Leaf node
-    tree_add.remove("B");  // ❌ Not a leaf
-    tree_add.remove("A");  // ❌ Root with children
+    tree_add.remove("E");  //  Leaf node
+    tree_add.remove("B");  //  Not a leaf
+    tree_add.remove("A");  //  Root with children
 
     cout << "\n-- Display B after E removed --" << endl;
     tree_add.display("B");
