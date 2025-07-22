@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bubble Sort vs Merge Sort Comparison</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f9;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+    .input-section, .comparison-section, .download-section {
+      margin-top: 30px;
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+    label {
+      display: block;
+      margin-bottom: 8px;
+    }
+    input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      background-color: #007bff;
+      color: white;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    .output-section {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 30px;
+      gap: 20px;
+    }
+    .algo-box {
+      flex: 1;
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+    pre {
+      background-color: #f1f1f1;
+      padding: 15px;
+      border-radius: 4px;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 10px;
+      text-align: center;
+    }
+    th {
+      background-color: #007bff;
+      color: white;
+    }
+    ul {
+      list-style: none;
+      padding-left: 0;
+    }
+    ul li {
+      margin-bottom: 10px;
+    }
+    a {
+      color: #007bff;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Bubble Sort vs Merge Sort</h1>
+
+    <div class="input-section">
+      <label for="inputArray">Enter numbers (comma separated):</label>
+      <input type="text" id="inputArray" placeholder="e.g. 5,3,8,4,2" />
+      <button onclick="compareSorts()">Sort Now</button>
+    </div>
+
+    <div class="output-section">
+      <div class="algo-box">
+        <h2>Bubble Sort</h2>
+        <pre id="bubbleOutput"></pre>
+      </div>
+      <div class="algo-box">
+        <h2>Merge Sort</h2>
+        <pre id="mergeOutput"></pre>
+      </div>
+    </div>
+
+    <div class="comparison-section">
+      <h2>Comparison Summary</h2>
+      <table>
+  <tr>
+    <th>Criteria</th>
+    <th>Bubble Sort</th>
+    <th>Merge Sort</th>
+  </tr>
+  <tr>
+    <td>Time Complexity</td>
+    <td>O(n<sup>2</sup>)</td>
+    <td>O(n log n)</td>
+  </tr>
+  <tr>
+    <td>Space Complexity</td>
+    <td>O(1)</td>
+    <td>O(n)</td>
+  </tr>
+  <tr>
+    <td>Best Use Case</td>
+    <td>Small data sets</td>
+    <td>Large data sets</td>
+  </tr>
+  <tr>
+    <td>Time Taken (ms)</td>
+    <td id="bubbleTime">-</td>
+    <td id="mergeTime">-</td>
+  </tr>
+</table>
+    </div>
+
+    <div class="download-section">
+      <h2>Download C++ Code</h2>
+      <ul>
+        <li><a href="bubble_sort.cpp" download>Bubble Sort (C++)</a></li>
+        <li><a href="merge_sort.cpp" download>Merge Sort (C++)</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <script>
+  async function compareSorts() {
+    const input = document.getElementById("inputArray").value;
+    const array = input.split(',').map(num => parseInt(num.trim())).filter(num => !isNaN(num));
+    if (array.length === 0) {
+      alert("Please enter valid comma-separated numbers.");
+      return;
+    }
+
+    // Clear output
+    document.getElementById("bubbleOutput").innerText = "";
+    document.getElementById("mergeOutput").innerText = "";
+
+    // Bubble Sort with animation and timing
+    let bubbleArr = [...array];
+    let bubbleSteps = `Original Array: ${bubbleArr.join(" ")}`;
+    let bubbleStepCounter = 1;
+    const bubbleStart = performance.now();
+
+    for (let i = 0; i < bubbleArr.length - 1; i++) {
+      for (let j = 0; j < bubbleArr.length - i - 1; j++) {
+        if (bubbleArr[j] > bubbleArr[j + 1]) {
+          [bubbleArr[j], bubbleArr[j + 1]] = [bubbleArr[j + 1], bubbleArr[j]];
+          bubbleSteps += `
+Step ${bubbleStepCounter++}: ${bubbleArr.join(" ")}`;
+          document.getElementById("bubbleOutput").innerText = bubbleSteps;
+          await new Promise(res => setTimeout(res, 100));
+        }
+      }
+    }
+    const bubbleEnd = performance.now();
+    bubbleSteps += `
+Final Sorted Array: ${bubbleArr.join(" ")}`;
+    const bubbleTime = (bubbleEnd - bubbleStart).toFixed(2);
+    document.getElementById("bubbleTime").innerText = bubbleTime;
+    bubbleSteps += `
+Time Taken: ${(bubbleEnd - bubbleStart).toFixed(2)} ms`;
+    document.getElementById("bubbleOutput").innerText = bubbleSteps;
+
+    // Merge Sort with animation and timing
+    let mergeArr = [...array];
+    let mergeSteps = `Original Array: ${mergeArr.join(" ")}`;
+    let mergeStepCount = 1;
+    const mergeStart = performance.now();
+
+    async function mergeSort(arr) {
+      if (arr.length <= 1) return arr;
+      const mid = Math.floor(arr.length / 2);
+      const left = await mergeSort(arr.slice(0, mid));
+      const right = await mergeSort(arr.slice(mid));
+      const merged = await merge(left, right);
+      mergeSteps += `
+Step ${mergeStepCount++}: ${merged.join(" ")}`;
+      document.getElementById("mergeOutput").innerText = mergeSteps;
+      await new Promise(res => setTimeout(res, 100));
+      return merged;
+    }
+
+    async function merge(left, right) {
+      const result = [];
+      let i = 0, j = 0;
+      while (i < left.length && j < right.length) {
+        result.push(left[i] <= right[j] ? left[i++] : right[j++]);
+      }
+      return result.concat(left.slice(i)).concat(right.slice(j));
+    }
+
+    const finalMerge = await mergeSort(mergeArr);
+    const mergeEnd = performance.now();
+    mergeSteps += `
+Final Sorted Array: ${finalMerge.join(" ")}`;
+    const mergeTime = (mergeEnd - mergeStart).toFixed(2);
+    document.getElementById("mergeTime").innerText = mergeTime;
+    mergeSteps += `
+Time Taken: ${(mergeEnd - mergeStart).toFixed(2)} ms`;
+    document.getElementById("mergeOutput").innerText = mergeSteps;
+  }
+</script>
+</body>
+</html>
